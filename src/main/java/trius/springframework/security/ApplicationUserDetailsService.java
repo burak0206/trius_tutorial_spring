@@ -19,9 +19,9 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Optional<ApplicationUser> optionalApplicationUser = userRepository.findById(s);
+        Optional<UserAccount> optionalApplicationUser = userRepository.findById(s);
         if(optionalApplicationUser.isPresent()) {
-            return optionalApplicationUser.get();
+            return new ApplicationUser(optionalApplicationUser.get().getEmail(),optionalApplicationUser.get().getPassword());
         } else
             return null;
     }

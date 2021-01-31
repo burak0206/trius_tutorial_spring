@@ -17,6 +17,10 @@
 <body>
 <div class="container">
 
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
     <h2>Product Details</h2>
     <div>
         <form class="form-horizontal" th:object="${productForm}" th:action="@{/product}" method="post">
